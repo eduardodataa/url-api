@@ -1,10 +1,10 @@
-package br.com.dataa;
+package br.com.meli;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MongApiApplicationTests {
+class URLApiApplicationTests {
 
 	@Test
 	void contextLoads() {

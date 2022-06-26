@@ -1,0 +1,8 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost/encurtador-url
+      host: localhost
+      port: 27017
+      username: ''
+      password: ''

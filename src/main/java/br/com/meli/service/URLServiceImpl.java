@@ -13,17 +13,22 @@ import br.com.meli.repository.URLRepository;
 @Service
 public class URLServiceImpl implements URLService {
 
-	@Autowired
-	private URLRepository uRLRepository;
+//	@Autowired
+	private URLRepository urlRepository;
 	
+    public URLServiceImpl(URLRepository urlRepository) {
+        this.urlRepository = urlRepository;
+    }
+
+    
 	@Override
 	public List<URL> obterTodas() {
-		return uRLRepository.findAll();
+		return urlRepository.findAll();
 	}
 
 	@Override
 	public URL obterPorCodigo(String codigo) {
-		return uRLRepository.findById(codigo)
+		return urlRepository.findById(codigo)
 				.orElseThrow(() -> new IllegalArgumentException("URL com código "+codigo+" não existe"));
 
 	}
@@ -35,7 +40,7 @@ public class URLServiceImpl implements URLService {
 			uRL.setUrlEncurtada("bit.ly");
 			uRL.setCodigo(codigo);
 			uRL.setDataCriacao(LocalDateTime.now());
-			return uRLRepository.save(uRL);
+			return urlRepository.save(uRL);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -44,12 +49,12 @@ public class URLServiceImpl implements URLService {
 
 
 	public List<URL> obterURLPorNome(String codigo) {
-		return uRLRepository.findByCodigo(codigo);
+		return urlRepository.findByCodigo(codigo);
 	}
 
 	@Override
 	public List<URL> obterURLPorRangeDataCriacao(LocalDateTime de, LocalDateTime ate) {
-		return uRLRepository.obterURLPorRangeDeDataCriacao(de, ate);
+		return urlRepository.obterURLPorRangeDeDataCriacao(de, ate);
 	}
 
 }
