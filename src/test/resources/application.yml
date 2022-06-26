@@ -1,0 +1,12 @@
+url:
+  urlOriginal: 'www.google.com.br'
+
+server:
+  port: 8081
+
+
+spring:
+  mongodb:
+    embedded:
+      version: 3.0.1
+
